@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import SubscriptionCards from "../components/SubscriptionCards";
 
 export default function SubscriptionsPage() {
