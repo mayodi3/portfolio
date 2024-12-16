@@ -236,12 +236,12 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold mb-8 text-amber-500">
             Get in Touch
           </h2>
-          <div className="flex justify-center space-x-4">
+          <div className="flex gap-3 flex-col md:flex-row items-center justify-center md:space-x-4">
             <Link href="/contact">
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500"
+                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500 w-40"
               >
                 <Image
                   src="/gmail.png?height=24&width=24"
@@ -257,7 +257,7 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500"
+                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500 w-40"
               >
                 <Image
                   src="/linkedin.png?height=24&width=24"
@@ -273,7 +273,7 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500"
+                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500 w-40"
               >
                 <Image
                   src="/github.png?height=24&width=24"
@@ -289,7 +289,7 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500"
+                className="bg-gray-800 text-gray-100 border-gray-700 hover:bg-gray-700 hover:text-amber-500 w-40"
               >
                 <Image
                   src="/facebook.png?height=24&width=24"
