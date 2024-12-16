@@ -108,7 +108,7 @@ export default function Contact() {
           <h2 className="text-2xl font-semibold text-amber-500 mb-4">
             Or reach out directly:
           </h2>
-          <div className="flex justify-center space-x-8">
+          <div className="flex flex-col gap-3 md:flex-row justify-center space-x-8">
             <div className="flex items-center">
               <Phone className="text-pink-500 mr-2" />
               <span>+254 707 317 185</span>
