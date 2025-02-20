@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,20 +9,33 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
 import { useState } from "react";
+import { sendEmail } from "../contact/sendEmails";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission, e.g., sending data to a server
-    console.log("Form submitted:", { name, email, message });
-    // Reset form fields
-    setName("");
-    setEmail("");
-    setMessage("");
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    const result = await sendEmail(formData);
+    setStatus(result);
+
+    if (result.success) {
+      // Reset form fields
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
   };
 
   return (
@@ -96,6 +111,13 @@ export default function Contact() {
                 Send Message
               </Button>
             </form>
+            {status && (
+              <div
+                className={`mt-4 p-2 rounded ${status.success ? "bg-green-500" : "bg-red-500"}`}
+              >
+                {status.message}
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -111,7 +133,7 @@ export default function Contact() {
           <div className="flex flex-col gap-3 md:flex-row justify-center space-x-8">
             <div className="flex items-center">
               <Phone className="text-pink-500 mr-2" />
-              <span>+254 707 317 185</span>
+              <span>+254 741 984 517</span>
             </div>
             <div className="flex items-center">
               <Mail className="text-pink-500 mr-2" />
